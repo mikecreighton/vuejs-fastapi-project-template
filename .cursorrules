@@ -1,0 +1,26 @@
+# About this app
+
+
+# Rules
+
+When working with Vue.js frontend code, use the following rules:
+
+1. You're working with a Vue 3 frontend. Always use Vue Single-File Components (SFCs) for all Vue components.
+2. All `<style>` tags should be scoped to the component and have a `lang="postcss"` attribute.
+3. The CSS framework is Tailwind CSS as a PostCSS plugin.
+4. CSS should only be concerned with desktop viewports, not mobile.
+5. `gsap` animation library should be used for all animations, unless they're simple and can be done with CSS transitions.
+6. We don't need to focus too much on componentization and reuse, but we should try to create a few components that can be reused throughout the app (things like buttons).
+7. We're using the shadcn-vue library for UI components, which can be used in place of raw HTML elements. All of these components will exist in the `@/components/ui` directory.
+8. We're using icons from Lucide Vue Next. We use the name of the icon for all icons with `import { IconName } from "lucide-vue-next"`. Then we can use the icon in the template with `<IconName size="16" />`.
+9. We're using the Pinia store for state management. All stores are in the `@/stores` directory.
+10. `<script setup>` tags should be at the top of the component.
+11. `<template>` tags should be immediately following the `<script setup>` tags.
+12. `<style>` tags should be at the bottom of the component file immediately following the `<template>` tags.
+
+When working with the Python backend code, use the following rules:
+
+1. All newly generated Python functions should include simple docstrings under the function declaration.
+2. We want to implement things using Pydantic models and FastAPI best practices as much as possible.
+3. This is a prototype, so we don't need to worry about things like authentication and authorization, but we should keep it in mind for the future.
+4. This is a prototype, so we're not concerned with scaling or performance, but we should keep it in mind for the future.
