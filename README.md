@@ -34,10 +34,14 @@ The frontend is a Vue.js application that provides the user interface/ It's loca
 - [Vue.js](https://vuejs.org/)
 - [Vite](https://vite.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn-vue](https://www.shadcn-vue.com/)
 - [GSAP](https://gsap.com/)
 
 > [!NOTE]
 > This is set up to use Javascript, not Typescript.
+
+> [!IMPORTANT]
+> Because this project template is intended for prototyping, it uses [shadcn-vue](https://www.shadcn-vue.com/) for the UI components so that we can quickly put together UI / UX. Shadcn-vue isn't a package, so you need to install components individually via the command line. Be sure to view their docs for more information. But ultimately, installation of components is very easy, usually with a command that looks like `npx shadcn-vue@latest add [component]`.
 
 ## Creating a new project
 
