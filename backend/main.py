@@ -66,6 +66,14 @@ async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
+@app.get("/api/hello")
+async def get_hello():
+    """
+    Returns a simple hello world response
+    """
+    return {"message": "/api/hello :: Hello from FastAPI! 👋"}
+
+
 if __name__ == "__main__":
     import uvicorn
 
