@@ -18,7 +18,7 @@ DEBUG = False
 
 load_dotenv()
 
-client = openai.OpenAI(
+client = openai.AsyncOpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"), base_url="https://openrouter.ai/api/v1"
 )
 
@@ -69,9 +69,23 @@ async def read_root(request: Request):
 @app.get("/api/hello")
 async def get_hello():
     """
-    Returns a simple hello world response
+    Returns a simple hello from the LLM.
     """
-    return {"message": "/api/hello :: Hello from FastAPI! 👋"}
+    try:
+        response = await client.chat.completions.create(
+            # Gemini because it's really cheap and fast.
+            model="google/gemini-flash-1.5-8b",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an AI that's part of a fun and experimental web app prototype. You're interacting with the developer of the app. Be friendly and feel free to use emojis in your responses!",
+                },
+                {"role": "user", "content": "Hi, how are you?"},
+            ],
+        )
+        return {"message": response.choices[0].message.content}
+    except Exception as e:
+        return {"message": f"Error: {e}"}
 
 
 if __name__ == "__main__":
