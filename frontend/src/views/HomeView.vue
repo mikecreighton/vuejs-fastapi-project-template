@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
+
+// --------------------------------------------------------
+// You don't have to use any of this stuff below. It's just for light / dark mode toggle.
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Icon } from '@iconify/vue'
@@ -9,14 +12,18 @@ import { useColorMode } from '@vueuse/core'
 const mode = useColorMode({
   disableTransition: false
 })
+// --------------------------------------------------------
 
+onMounted(() => {
+  console.log("HomeView :: Hello world 👋")
+})
+
+// A little function to test out a call to the backend
 const handleSayHello = async () => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/api/hello`)
   const data = await response.json()
   console.log(data.message)
 }
-
-console.log("HomeView :: Hello world 👋")
 </script>
 
 <template>
