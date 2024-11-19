@@ -74,7 +74,7 @@ This is a template project, so you'll want to start by clicking the "Use this te
    ```
    cd backend
    source .venv/bin/activate
-   python app.py
+   python main.py
    ```
 
 2. In a new terminal, start the frontend development server:
